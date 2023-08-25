@@ -81,8 +81,6 @@ ul li a:hover {
   height: auto; 
 }
 
-
-
 footer {
   background-color: #777;
   padding: 10px;
@@ -90,11 +88,10 @@ footer {
   color: white;
 }
 
-@media (max-width: 600px) {
-  nav{
-    width: 100%;
-    height: auto;
-  }
+.wrapper  {
+  margin: 0 auto 0 60px;
+  width: 1000px;
+
 }
 
 .background  {
