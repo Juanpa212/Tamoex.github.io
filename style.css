@@ -90,7 +90,7 @@ footer {
 }
 
 .wrapper  {
-  margin: 0 auto;
+  margin: 0 auto 0 10px;
   width: 1000px;
 
 }
