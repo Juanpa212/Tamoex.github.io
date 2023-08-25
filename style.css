@@ -12,6 +12,7 @@ div {
 h1 {
   font-size: 30px; 
   text-align: center;
+  margin: 0 auto 0 250px;
 }
 
 body {
@@ -23,7 +24,7 @@ p {
   text-align: center;
   font-family: 'Times New Roman';
   font-size: 18pt;
-  margin: 50px;
+  margin: 0 auto 0 250px;
 }
 
 nav {
