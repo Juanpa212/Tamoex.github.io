@@ -90,9 +90,11 @@
   
   }
 
-  .background-image{
+  .background-lost{
     background-image: url("lost.JPG")
 
   }
   
-  
+  .background-full{
+    background-image: url("full_body.JPG");
+  }
