@@ -23,7 +23,7 @@ p {
   text-align: center;
   font-family: 'Times New Roman';
   font-size: 18pt;
-  margin: 50px; /
+  margin: 50px;
 }
 
 nav {
@@ -77,8 +77,9 @@ ul li a:hover {
 }
 
 .image {
-  width: auto !important;
+  width: 500px ;
   height: auto; 
+  align-content: center;
 }
 
 footer {
@@ -89,7 +90,7 @@ footer {
 }
 
 .wrapper  {
-  margin: 0 auto 0 60px;
+  margin: 0 auto;
   width: 1000px;
 
 }
