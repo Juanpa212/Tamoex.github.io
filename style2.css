@@ -13,10 +13,11 @@
     font-size: 30px; 
     text-align: center;
     margin: 25px;
+    text-shadow: 2px 2px red;
   }
   
   body {
-    background-color: white;
+    background-color: #a9a9a9;
     text-align: bottom;
   }
   
