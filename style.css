@@ -73,17 +73,22 @@ ul li a:hover {
   align-items: center; 
   justify-content: center; 
   text-align: center;
-  margin: 100px 200px 0 0; 
+  margin: 100px; 
 }
 
 .image {
   width: 500px ;
   height: auto; 
-  margin: 100px;
+  margin: 250px;
   align-content: center;
 }
 
-
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
 
 .wrapper  {
   margin: 0 auto 0 10px;
