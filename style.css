@@ -73,12 +73,13 @@ ul li a:hover {
   align-items: center; 
   justify-content: center; 
   text-align: center;
-  margin: 50px; 
+  margin: 100px; 
 }
 
 .image {
   width: 500px ;
   height: auto; 
+  margin: 100px;
   align-content: center;
 }
 
