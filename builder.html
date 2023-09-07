@@ -30,7 +30,6 @@
                         <option value = "i5">Intel i5</option>
                         <option value = "i7">Intel i7</option>
                         <option value = "i9">Intel i9</option>
-                        <option value = "r3">Ryzen 3</option>
                         <option value = "r5">Ryzen 5</option>
                         <option value = "r7">Ryzen 7</option>
                         <option value = "r9">Ryzen 9</option>
@@ -105,9 +104,70 @@
             <div>
                 <h2>Total Price: $<span id="totalPrice">0.00</h2>
                     <script>
-                        // Function to calculate the total price
+                        const componentPrices = {
+                                cpu: {
+                                    i3: 120,
+                                    i5: 285,
+                                    i7: 400,
+                                    i9: 550,
+                                    r5: 300,
+                                    r7: 450,
+                                    r9: 500,
+                                },
+                                ram: {
+                                    '8gb': 40,
+                                    '16gb': 70,
+                                    '32gb': 150,
+                                    '64gb': 250,
+                                },
+                                gpu: {
+                                    "nvidia4060": 300,
+                                    "nvidia4070": 600,
+                                    "nvidia4080": 1200,
+                                    "nvidia4090": 1600,
+                                    "rx7600": 300,
+                                    "rx7700": 450,
+                                    "rx7800": 600,
+                                    "rx7900": 800,
+
+                                },
+                                storage:{
+                                    "256gbSS": 15,
+                                    "512gbSS": 30,
+                                    "1TbSS": 80,
+                                    "2TbSS": 120,
+                                    "256gbHD": 20,
+                                    "512gbHD" : 30,
+                                    "1TbHD" : 50,
+                                },
+                                motherboard:{
+                                    "atx": 150,
+                                    "microatx": 200,
+                                },
+                                psu:{
+                                    "500w":40,
+                                    "650w":60,
+                                    "750w":80,
+                                    "850w":100,
+                                    "1000w":130,
+                                    "1200w":150,
+                                },
+                                case:{
+                                    "Corsair":100,
+                                    "LianLi":150,
+                                    "CoolerMaster":80,
+                                    "Fractal":140,
+                                    "NZXT":85,
+                                    "Thermaltake":85,
+                                },
+                                cooling:{
+                                    "fan":50,
+                                    "water":100,
+                                    "custom":150,
+                                },
+                            };
+
                         function calculateTotalPrice() {
-                            // Get selected values from the form elements
                             const cpuPrice = parseFloat(document.getElementById("cpu").value);
                             const ramPrice = parseFloat(document.getElementById("ram").value);
                             const gpuPrice = parseFloat(document.getElementById("gpu").value);
@@ -117,21 +177,17 @@
                             const casePrice = parseFloat(document.getElementById("case").value);
                             const coolingPrice = parseFloat(document.getElementById("cooling").value);
                 
-                            // Calculate the total price
                             const totalPrice = cpuPrice + ramPrice + gpuPrice + storagePrice +
                                 motherboardPrice + psuPrice + casePrice + coolingPrice;
                 
-                            // Update the total price in the HTML
                             document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
                         }
                 
-                        // Add event listeners to the form elements
                         const formElements = document.querySelectorAll("select");
                         formElements.forEach((element) => {
                             element.addEventListener("change", calculateTotalPrice);
                         });
-                
-                        // Initial calculation on page load
+        
                         calculateTotalPrice();
                 </script>
         </div>
