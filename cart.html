@@ -21,6 +21,99 @@
 
                 </nav>
             </header>
+            <div>
+                <script>
+                    const componentPrices = {
+                            cpu: {
+                                 i3: 120,
+                                 i5: 285,
+                                 i7: 400,
+                                 i9: 550,
+                                 r5: 300,
+                                 r7: 450,
+                                 r9: 500,
+                                },
+                             ram: {
+                                '8gb': 40,
+                                '16gb': 70,
+                                '32gb': 150,
+                                '64gb': 250,
+                                },
+                            gpu: {
+                                "nvidia4060": 300,
+                                "nvidia4070": 600,
+                                "nvidia4080": 1200,
+                                "nvidia4090": 1600,
+                                "rx7600": 300,
+                                "rx7700": 450,
+                                "rx7800": 600,
+                                "rx7900": 800,
+
+                                },
+                            storage:{
+                                "256gbSS": 15,
+                                "512gbSS": 30,
+                                "1TbSS": 80,
+                                "2TbSS": 120,
+                                "256gbHD": 20,
+                                "512gbHD" : 30,
+                                "1TbHD" : 50,
+                                },
+                            motherboard:{
+                                    "atx": 150,
+                                    "microatx": 200,
+                                },
+                            psu:{
+                                "500w":40,
+                                "650w":60,
+                                "750w":80,
+                                "850w":100,
+                                "1000w":130,
+                                "1200w":150,
+                                },
+                            case_:{
+                                "Corsair":100,
+                                "LianLi":150,
+                                "CoolerMaster":80,
+                                "Fractal":140,
+                                "NZXT":85,
+                                "Thermaltake":85,
+                                },
+                            cooling:{
+                                "fan":50,
+                                "water":100,
+                                "custom":150,
+                                },
+                            };
+
+                     function calculateTotalPrice() {
+                        const cpuPrice = componentPrices.cpu[document.getElementById("cpu").value];
+                        const ramPrice = componentPrices.ram[document.getElementById("ram").value];
+                        const gpuPrice = componentPrices.gpu[document.getElementById("gpu").value];
+                        const storagePrice = componentPrices.storage[document.getElementById("storage").value];
+                        const motherboardPrice = componentPrices.motherboard[document.getElementById("motherboard").value];
+                        const psuPrice = componentPrices.psu[document.getElementById("psu").value];
+                        const casePrice = componentPrices.case_[document.getElementById("case_").value];
+                        const coolingPrice = componentPrices.cooling[document.getElementById("cooling").value];
+
+                        const totalPrice = cpuPrice + ramPrice + gpuPrice + storagePrice +
+                                 motherboardPrice + psuPrice + casePrice + coolingPrice;
+
+                            document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
+                            }
+
+                         const formElements = document.querySelectorAll("select");
+                         formElements.forEach((element) => {
+                             element.addEventListener("change", calculateTotalPrice);
+                            });
+
+                         calculateTotalPrice();
+            
+                </script>
+                <div>
+                    <h2>Total Price: $<span id="totalPrice">0.00</span></h2>
+                </div>
+            </div>
         </body>
     </head>
 </html>
