@@ -1,20 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html leng="en">
     <head>
-        <title>DigiBuilds</title>
-        <meta cahrset = "utf-8">
-        <meta name="viewport" content="width=device-width, initial-1">
-    </head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <body>
             <link href="styleshop.css" rel = "stylesheet">
-            <div class = "header">
+            <header class = "header">
                 <h1>DigiBuilds</h1>
-                    <div class = "topnav">
-                        <a href="indexshop.html">Home</a>
-                        <a href="builder.html`">Builder</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="index.html">Portfolio</a>
-                    </div>
+                <nav class = "nav">
+                        <div class = "nav-left">
+                            <ul>
+                                <li><a href="indexshop.html">Home</a></li>
+                                <li><a href="builder.html`">Builder</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="index.html">Portfolio</a></li>
+                            </ul>
+                        </div>
+                        <div class = "nav-right">
+                            <a href ="cart.html">Cart</a>
+                        </div>
+
+                </nav>
+            </header>
+            <div>
+                <form id="partForm">
+                    <label for = "cpu">Select the CPU: </label>
+                    <select id="cpu">
+                        <option value = "i3">Intel i3</option>
+                        <option value = "i5">Intel i5</option>
+                        <option value = "i7">Intel i7</option>
+                        <option value = "i9">Intel i9</option>
+                        <option value = "r3">Ryzen 3</option>
+                        <option value = "r5">Ryzen 5</option>
+                        <option value = "r7">Ryzen 7</option>
+                        <option value = "r9">Ryzen 9</option>
+                    </select>
+                    <br>
+                    <label for = "ram">Select the RAM: </label>
+                    <select id="ram">
+                        <option value = "8gb">8 GB</option>
+                        <option value = "16gb">16 GB</option>
+                        <option value = "32gb">32 GB</option>
+                        <option value = "64gb">64 GB</option>
+  
+                    </select>
+                    <br>
+                    <label for = "gpu">Select the Graphics Card</label>
+                    <select id="gpu">
+                        <option value = "nvdia4060">RTX 4060</option>
+                        <option value = "nvdia4070">RTX 4070</option>
+                        <option value = "nvdia4080">RTX 4080</option>
+                        <option value = "nvdia4090">RTX 4090</option>
+                        <option value = "rx7600">Radeon RX 7600 </option>
+                        <option value = "rx7700">Radeon RX 7700 XT</option>
+                        <option value = "rx7800">Radeon RX 7800 XT</option>
+                        <option value = "rx7900">Radeon RX 7900 XT</option>
+                    </select>
+                    <br>
+                    <label for = "storage">Select the Storage Capacity</label>
+                    <select id="storage">
+                        <option value = "256gbSS">256gb Solid State Drive</option>
+                        <option value = "512gbSS">512gb Solid State Drive</option>
+                        <option value = "1TbSS"> 1Tb Solid State Drive</option>
+                        <option value = "2TbSS"> 2Tb Solid State Drive</option>
+                        <option value = "256gbHD">256 gb Hard Drive</option>
+                        <option value = "512gbHD">512 gb Hard Drive</option>
+                        <option value = "1TbHD">1 Tb Hard Drive</option>
+                    </select>
+                    <br>
+                    <label for = "motherboard">Select the motherboard: </label>
+                    <select id="motherboard">
+                        <option value = "atx">ATX</option>
+                        <option value = "microaAtx">Micro ATX</option>
+                    </select>
+                    <br>
+                    <label for = "psu">Select the Power Supply Capacity</label>
+                    <select id = "psu">
+                        <option value = "500w">500 Watts</option>
+                        <option value = "650w">650 Watts</option>
+                        <option value = "750w">750 Watts</option>
+                        <option value = "850w">850 Watts</option>
+                        <option value = "1000w"> 1000 Watts</option>
+                        <option value = "1200w"> 1200 Watts</option>
+                    </select>
+                    <br>
+                    <label for = "case">Select the Case: </label>
+                    <select id = "case">
+                        <option value = "Corsair"> Corsair </option>
+                        <option value = "LianLi"> Lian Li </option>
+                        <option value = "CoolerMaster"> CoolerMaster</option>   
+                        <option value = "Fractal"> Fractal </option>
+                        <option value = "NZXT"> NZXT</option>
+                        <option value = "Thermaltake"> Thermaltake</option>
+                    </select>
+                    <br>
+                    <label for = "cooling">Select the Cooler Type: </label>
+                    <select id = "cooling">
+                        <option value = "fan"> Fans </option>
+                        <option value = "water"> Water Cooling</option>
+                        <option value = "custom"> Custom Loop </option>
+                    </select>
+                </form>
             </div>
-        </body>
-    </hmtl>
+            <div>
+                <h2>Total Price: $<span id="totalPrice">0.00</h2>
+                    <script>
+                        // Function to calculate the total price
+                        function calculateTotalPrice() {
+                            // Get selected values from the form elements
+                            const cpuPrice = parseFloat(document.getElementById("cpu").value);
+                            const ramPrice = parseFloat(document.getElementById("ram").value);
+                            const gpuPrice = parseFloat(document.getElementById("gpu").value);
+                            const storagePrice = parseFloat(document.getElementById("storage").value);
+                            const motherboardPrice = parseFloat(document.getElementById("motherboard").value);
+                            const psuPrice = parseFloat(document.getElementById("psu").value);
+                            const casePrice = parseFloat(document.getElementById("case").value);
+                            const coolingPrice = parseFloat(document.getElementById("cooling").value);
+                
+                            // Calculate the total price
+                            const totalPrice = cpuPrice + ramPrice + gpuPrice + storagePrice +
+                                motherboardPrice + psuPrice + casePrice + coolingPrice;
+                
+                            // Update the total price in the HTML
+                            document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
+                        }
+                
+                        // Add event listeners to the form elements
+                        const formElements = document.querySelectorAll("select");
+                        formElements.forEach((element) => {
+                            element.addEventListener("change", calculateTotalPrice);
+                        });
+                
+                        // Initial calculation on page load
+                        calculateTotalPrice();
+                </script>
+        </div>
+    </body>
+</html>
