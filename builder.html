@@ -83,7 +83,7 @@
                     </select>
                     <br>
                     <label for = "case">Select the Case: </label>
-                    <select id = "case">
+                    <select id = "case_">
                         <option value = "Corsair"> Corsair </option>
                         <option value = "LianLi"> Lian Li </option>
                         <option value = "CoolerMaster"> CoolerMaster</option>   
@@ -98,11 +98,23 @@
                         <option value = "water"> Water Cooling</option>
                         <option value = "custom"> Custom Loop </option>
                     </select>
+                    <br>
+                    <button type = "submit">Add build to cart</button>
                 </form>
             </div>
             <div>
                 <h2>Total Price: $<span id="totalPrice">0.00</h2>
                     <script>
+                        partForm.addEventListener("submit", function(event) {
+                            const cpu = document.getElementById('partFrom');
+                            const gpu = document.getElementById('partFrom');
+                            const ram = document.getElementById('partFrom');
+                            const motherboard = document.getElementById('partFrom');
+                            const psu = document.getElementById('partFrom');
+                            const case_ = document.getElementById('partFrom');
+                            const cooling = document.getElementById('partFrom');
+
+                        });
                         const componentPrices = {
                                 cpu: {
                                     i3: 120,
@@ -151,7 +163,7 @@
                                     "1000w":130,
                                     "1200w":150,
                                 },
-                                case:{
+                                case_:{
                                     "Corsair":100,
                                     "LianLi":150,
                                     "CoolerMaster":80,
