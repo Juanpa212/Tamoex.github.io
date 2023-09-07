@@ -11,8 +11,7 @@
                         <div class = "nav-left">
                             <ul>
                                 <li><a href="indexshop.html">Home</a></li>
-                                <li><a href="builder.html`">Builder</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="builder.html">Builder</a></li>
                                 <li><a href="index.html">Portfolio</a></li>
                             </ul>
                         </div>
@@ -167,29 +166,29 @@
                                 },
                             };
 
-                        function calculateTotalPrice() {
-                            const cpuPrice = parseFloat(document.getElementById("cpu").value);
-                            const ramPrice = parseFloat(document.getElementById("ram").value);
-                            const gpuPrice = parseFloat(document.getElementById("gpu").value);
-                            const storagePrice = parseFloat(document.getElementById("storage").value);
-                            const motherboardPrice = parseFloat(document.getElementById("motherboard").value);
-                            const psuPrice = parseFloat(document.getElementById("psu").value);
-                            const casePrice = parseFloat(document.getElementById("case").value);
-                            const coolingPrice = parseFloat(document.getElementById("cooling").value);
-                
+                         function calculateTotalPrice() {
+                            const cpuPrice = componentPrices.cpu[document.getElementById("cpu").value];
+                            const ramPrice = componentPrices.ram[document.getElementById("ram").value];
+                            const gpuPrice = componentPrices.gpu[document.getElementById("gpu").value];
+                            const storagePrice = componentPrices.storage[document.getElementById("storage").value];
+                            const motherboardPrice = componentPrices.motherboard[document.getElementById("motherboard").value];
+                            const psuPrice = componentPrices.psu[document.getElementById("psu").value];
+                            const casePrice = componentPrices.case[document.getElementById("case").value];
+                            const coolingPrice = componentPrices.cooling[document.getElementById("cooling").value];
+
                             const totalPrice = cpuPrice + ramPrice + gpuPrice + storagePrice +
                                 motherboardPrice + psuPrice + casePrice + coolingPrice;
-                
+
                             document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
-                        }
-                
-                        const formElements = document.querySelectorAll("select");
-                        formElements.forEach((element) => {
-                            element.addEventListener("change", calculateTotalPrice);
-                        });
-        
-                        calculateTotalPrice();
-                </script>
+                            }
+
+                            const formElements = document.querySelectorAll("select");
+                            formElements.forEach((element) => {
+                                element.addEventListener("change", calculateTotalPrice);
+                            });
+
+                            calculateTotalPrice();
+                    </script>
         </div>
     </body>
 </html>
