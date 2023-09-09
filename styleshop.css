@@ -11,100 +11,7 @@ h1  {
     color: black;
 }
 
-/* nav  {
-    background: gray;
-    padding: 15px;
-}
 
-nav ul  {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-nav a {
-    display: block;
-    width: 60px;
-}
-
-.nav-left   {
-    float: left;
-}
-
-.nav-left ul li {
-    float:left;
-}
-
-.nav-right ul li  {
-    float:right;
-}
-
-.header   {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-}
-
-
-
-.topnav a:hover  {
-    background-color: #ddd;
-    color: black;
-}
-
-.leftcolumn  {
-    float: left;
-    width: 75%
-}
-
-.rightcolumn {
-    float: left;
-    width: 25%;
-    background-color: #f1f1f1;
-}
-
-.fakeimg  {
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
-}
-
-.card  {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.row::after  {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.footer  {
-    padding: 20px;
-    text-align: center;
-    background: #ddd;
-    margin-top: 20px;
-} */
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-}
-
-/* Style the header */
-.header {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Style the top navigation bar */
 nav {
     overflow: hidden;
     background-color: #333;
@@ -143,7 +50,30 @@ nav a:hover {
     color: black;
 }
 
-@media screen and (max-width: 800px) {
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    margin: 50px; 
+  }
+  
+  .image {
+    width: 500px ;
+    height: auto; 
+    align-content: center;
+  }
+  
+  
+  
+  .wrapper  {
+    margin: 0 auto 0 auto;
+    width: 1000px;
+  
+  }
+
+/* @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {
         width: 100px;
         padding: 0;
@@ -156,3 +86,4 @@ nav a:hover {
         width: 100%;
     }
 }
+ */
