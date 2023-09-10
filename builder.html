@@ -29,8 +29,8 @@
                         and not to mention cheaper, AMD is the better option if you are on a budget. However,
                         Intel is the clear winner when it comes to raw power.
                     </p>
-                    <img scr = chart.png alt = "chart">
-                    <img scr = chart_radeon.png alt = "chart2">
+                    <img src = chart.png alt = "chart">
+                    <img src = chart_radeon.jpeg alt = "chart2">
                     <h3>Nvidia vs AMD</h3>
                     <P>
                         When it comes to graphics cards there are two main competitors, Nvidia and AMD. 
@@ -71,91 +71,98 @@
                     </p>
 
                 </div>
-                <form id="partForm" method="GET" action="cart.html">
-                    <label for = "cpu">Select the CPU: </label>
-                    <select id="cpu" type = "text" name = "cpu">
-                        <option value = "120">Intel i3 - $120</option>
-                        <option value = "285">Intel i5 - $285</option>
-                        <option value = "400">Intel i7 - $400</option>
-                        <option value = "550">Intel i9 - $550</option>
-                        <option value = "300">Ryzen 5 - $300</option>
-                        <option value = "450">Ryzen 7 - $450</option>
-                        <option value = "500">Ryzen 9 - $500</option>
-                    </select>
-                    <br>
-                    <label for = "ram">Select the RAM: </label>
-                    <select id="ram" type ="text" name= "ram">
-                        <option value = "40">8 GB - $40</option>
-                        <option value = "60">16 GB - $60</option>
-                        <option value = "120">32 GB -  $120</option>
-                        <option value = "200">64 GB - $200</option>
-  
-                    </select>
-                    <br>
-                    <label for = "gpu">Select the Graphics Card</label>
-                    <select id="gpu" type="text" name ="gpu">
-                        <option value = "300">RTX 4060 - $300</option>
-                        <option value = "600">RTX 4070 - $600</option>
-                        <option value = "1200">RTX 4080 - $1200</option>
-                        <option value = "1600">RTX 4090 - $1600</option>
-                        <option value = "320">Radeon RX 7600 - $320</option>
-                        <option value = "450">Radeon RX 7700 XT - $450</option>
-                        <option value = "600">Radeon RX 7800 XT - $600</option>
-                        <option value = "800">Radeon RX 7900 XT - $800</option>
-                    </select>
-                    <br>
-                    <label for = "storage">Select the Storage Capacity</label>
-                    <select id="storage" type="text" name = "storage">
-                        <option value = "15">256gb Solid State Drive - $15</option>
-                        <option value = "30">512gb Solid State Drive - $30</option>
-                        <option value = "80"> 1Tb Solid State Drive - $80</option>
-                        <option value = "120"> 2Tb Solid State Drive - $120</option>
-                        <option value = "10">256 gb Hard Drive - $10</option>
-                        <option value = "20">512 gb Hard Drive - $20</option>
-                        <option value = "50">1 Tb Hard Drive - $50</option>
-                    </select>
-                    <br>
-                    <label for = "motherboard">Select the motherboard: </label>
-                    <select id="motherboard" type="text" name="motherboard">
-                        <option value = "150">ATX - $150</option>
-                        <option value = "200">Micro ATX - $200</option>
-                    </select>
-                    <br>
-                    <label for = "psu">Select the Power Supply Capacity</label>
-                    <select id = "psu" type="text" name="psu">
-                        <option value = "20">500 Watts - $20</option>
-                        <option value = "40">650 Watts - $40</option>
-                        <option value = "60">750 Watts - $60</option>
-                        <option value = "80">850 Watts - $80</option>
-                        <option value = "100"> 1000 Watts - $100</option>
-                        <option value = "120"> 1200 Watts - $120</option>
-                    </select>
-                    <br>
-                    <label for = "case">Select the Case: </label>
-                    <select id = "case_" type="text" name = "case_">
-                        <option value = "100"> Corsair - $100</option>
-                        <option value = "150"> Lian Li - $150</option>
-                        <option value = "80"> CoolerMaster - $80</option>   
-                        <option value = "140"> Fractal - $140</option>
-                        <option value = "85"> NZXT - $85</option>
-                        <option value = "90"> Thermaltake - $90</option>
-                    </select>
-                    <br>
-                    <label for = "cooling">Select the Cooler Type: </label>
-                    <select id = "cooling" type="text" name = "cooling">
-                        <option value = "50"> Fans - $50 </option>
-                        <option value = "100"> Water Cooling - $100</option>
-                        <option value = "150"> Custom Loop - $150</option>
-                    </select>
-                    <br>
-                    <h2>Add-ons</h2>
-                    <label><input type="checkbox" id="dvd" value="30">DVD Disc Drive (+$30)</label>
-                    <label><input type="checkbox" id="sound" value="25">Sound Card (+$25)</label>
-                    <label><input type="checkbox" id="wifi" value="20">Wifi Card (+$20)</label>
-                    <label><input type="checkbox" id="rgb" value="15">RGB Lights (+$15)</label>
-                    <br>
-                    <button type="submit">Add build to cart</button>
-                </form>
+                <div>
+                    <h2>Build Your Own!</h2>
+                    <p>
+                        Use the form below to build your own pc. carefully select each component and make sure it suits your needs.
+                        When you are done, press the submit button to add your build to the cart.
+                    </p>
+                    <form id="partForm" method="GET" action="cart.html">
+                        <label for = "cpu">Select the CPU: </label>
+                        <select id="cpu" type = "text" name = "cpu">
+                            <option value = "120">Intel i3 - $120</option>
+                            <option value = "285">Intel i5 - $285</option>
+                            <option value = "400">Intel i7 - $400</option>
+                            <option value = "550">Intel i9 - $550</option>
+                            <option value = "300">Ryzen 5 - $300</option>
+                            <option value = "450">Ryzen 7 - $450</option>
+                            <option value = "500">Ryzen 9 - $500</option>
+                        </select>
+                        <br>
+                        <label for = "ram">Select the RAM: </label>
+                        <select id="ram" type ="text" name= "ram">
+                            <option value = "40">8 GB - $40</option>
+                            <option value = "60">16 GB - $60</option>
+                            <option value = "120">32 GB -  $120</option>
+                            <option value = "200">64 GB - $200</option>
+      
+                        </select>
+                        <br>
+                        <label for = "gpu">Select the Graphics Card</label>
+                        <select id="gpu" type="text" name ="gpu">
+                            <option value = "300">RTX 4060 - $300</option>
+                            <option value = "600">RTX 4070 - $600</option>
+                            <option value = "1200">RTX 4080 - $1200</option>
+                            <option value = "1600">RTX 4090 - $1600</option>
+                            <option value = "320">Radeon RX 7600 - $320</option>
+                            <option value = "450">Radeon RX 7700 XT - $450</option>
+                            <option value = "600">Radeon RX 7800 XT - $600</option>
+                            <option value = "800">Radeon RX 7900 XT - $800</option>
+                        </select>
+                        <br>
+                        <label for = "storage">Select the Storage Capacity</label>
+                        <select id="storage" type="text" name = "storage">
+                            <option value = "15">256gb Solid State Drive - $15</option>
+                            <option value = "30">512gb Solid State Drive - $30</option>
+                            <option value = "80"> 1Tb Solid State Drive - $80</option>
+                            <option value = "120"> 2Tb Solid State Drive - $120</option>
+                            <option value = "10">256 gb Hard Drive - $10</option>
+                            <option value = "20">512 gb Hard Drive - $20</option>
+                            <option value = "50">1 Tb Hard Drive - $50</option>
+                        </select>
+                        <br>
+                        <label for = "motherboard">Select the motherboard: </label>
+                        <select id="motherboard" type="text" name="motherboard">
+                            <option value = "150">ATX - $150</option>
+                            <option value = "200">Micro ATX - $200</option>
+                        </select>
+                        <br>
+                        <label for = "psu">Select the Power Supply Capacity</label>
+                        <select id = "psu" type="text" name="psu">
+                            <option value = "20">500 Watts - $20</option>
+                            <option value = "40">650 Watts - $40</option>
+                            <option value = "60">750 Watts - $60</option>
+                            <option value = "80">850 Watts - $80</option>
+                            <option value = "100"> 1000 Watts - $100</option>
+                            <option value = "120"> 1200 Watts - $120</option>
+                        </select>
+                        <br>
+                        <label for = "case">Select the Case: </label>
+                        <select id = "case_" type="text" name = "case_">
+                            <option value = "100"> Corsair - $100</option>
+                            <option value = "150"> Lian Li - $150</option>
+                            <option value = "80"> CoolerMaster - $80</option>   
+                            <option value = "140"> Fractal - $140</option>
+                            <option value = "85"> NZXT - $85</option>
+                            <option value = "90"> Thermaltake - $90</option>
+                        </select>
+                        <br>
+                        <label for = "cooling">Select the Cooler Type: </label>
+                        <select id = "cooling" type="text" name = "cooling">
+                            <option value = "50"> Fans - $50 </option>
+                            <option value = "100"> Water Cooling - $100</option>
+                            <option value = "150"> Custom Loop - $150</option>
+                        </select>
+                        <br>
+                        <h2>Add-ons</h2>
+                        <label><input type="checkbox" id="dvd" value="30">DVD Disc Drive (+$30)</label>
+                        <label><input type="checkbox" id="sound" value="25">Sound Card (+$25)</label>
+                        <label><input type="checkbox" id="wifi" value="20">Wifi Card (+$20)</label>
+                        <label><input type="checkbox" id="rgb" value="15">RGB Lights (+$15)</label>
+                        <br>
+                        <button type="submit">Add build to cart</button>
+                    </form>
+                </div>
             </div>
         </body>
 </html>

@@ -117,10 +117,7 @@ function calculateTotalPrice() {
     if (rgbChecked) selectedAddOns.push("RGB Lights");
 
     document.getElementById('addOnsSelection').textContent = selectedAddOns.join(', ');
-
-
-
-
+    
     var addOnPrices = 0;
     var addOnPrices = getAddOnPrice('dvd') + getAddOnPrice('sound') + getAddOnPrice('wifi') + getAddOnPrice('rgb');
 

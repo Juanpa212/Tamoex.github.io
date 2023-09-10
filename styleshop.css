@@ -6,6 +6,9 @@ body   {
     margin: 0;
 }
 
+header  {
+    text-align: center;
+}
 h1  {
     text-shadow: blue 2px 2px;
     color: black;
