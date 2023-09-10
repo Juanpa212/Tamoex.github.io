@@ -1,184 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="styleshop.css" rel="stylesheet">
-    <title>Your Cart</title>
-</head>
-<body>
-    <header class="header">
-        <h1>DigiBuilds</h1>
-        <nav class="nav">
-            <div class="nav-left">
-                <ul>
-                    <li><a href="indexshop.html">Home</a></li>
-                    <li><a href="builder.html">Builder</a></li>
-                    <li><a href="index.html">Portfolio</a></li>
-                </ul>
-            </div>
-            <div class="nav-right">
-                <a href="cart.html">Cart</a>
-            </div>
-        </nav>
-    </header>
-    <div>
-        <h2>Your Cart</h2>
-        <!-- Display selected components here -->
-        <table>
-            <tr>
-                <td>Processor</td>
-                <td id="cpuSelection"></td>
-            </tr>
-            <tr>
-                <td>Ram</td>
-                <td id="ramSelection"></td>
-            </tr>
-            <tr>
-                <td>Graphics Card</td>
-                <td id="gpuSelection"></td>
-            </tr>
-            <tr>
-                <td>Motherboard</td>
-                <td id="motherboardSelection"></td>
-            </tr>
-            <tr>
-                <td>Storage</td>
-                <td id="storageSelection"></td>
-            </tr>
-            <tr>
-                <td>Case</td>
-                <td id="caseSelection"></td>
-            </tr>
-            <tr>
-                <td>Cooling</td>
-                <td id="coolingSelection"></td>
-            </tr>
-        </table>
-        <!-- Display total price here -->
-        <p>Total Price: <span id="totalPrice">$0.00</span></p>
-        <!-- Checkout button -->
-        <button onclick="checkout()">Checkout</button>
-    </div>
-    <script>
-        // Function to extract query parameters from the URL
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styleshop.css" rel="stylesheet">
+        <title>Your Cart</title>
+    </head>
+    <body>
+        <header class="header">
+            <h1>DigiBuilds</h1>
+            <nav class="nav">
+                <div class="nav-left">
+                    <ul>
+                        <li><a href="indexshop.html">Home</a></li>
+                        <li><a href="builder.html">Builder</a></li>
+                        <li><a href="index.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <a href="cart.html">Cart</a>
+                </div>
+            </nav>
+        </header>
+        <div class ="wrapper">
+            <h2>Your Cart</h2>
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Processor</td>
+                    <td id="cpuSelection"></td>
+                </tr>
+                <tr>
+                    <td>Ram</td>
+                    <td id="ramSelection"></td>
+                </tr>
+                <tr>
+                    <td>Graphics Card</td>
+                    <td id="gpuSelection"></td>
+                </tr>
+                <tr>
+                    <td>Motherboard</td>
+                    <td id="motherboardSelection"></td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td id="storageSelection"></td>
+                </tr>
+                <tr>
+                    <td>Power Supply</td>
+                    <td id="psuSelection"></td>
+                </tr>
+                <tr>
+                    <td>Case</td>
+                    <td id="caseSelection"></td>
+                </tr>
+                <tr>
+                    <td>Cooling</td>
+                    <td id="coolingSelection"></td>
+                </tr>
+                <tr>
+                    <td>Add-ons</td>
+                    <td>
+                        <input type="checkbox" id="dvd"> DVD Disc Drive
+                        <input type="checkbox" id="sound"> Sound Card
+                        <input type="checkbox" id="wifi"> Wifi Card
+                        <input type="checkbox" id="rgb"> RGB Lights
+                    </td>
+                </tr>
+            </table>
 
-        // Populate the table cells with selected components
-        document.getElementById("cpuSelection").textContent = getQueryParam("cpu");
-        document.getElementById("ramSelection").textContent = getQueryParam("ram");
-        document.getElementById("gpuSelection").textContent = getQueryParam("gpu");
-        document.getElementById("motherboardSelection").textContent = getQueryParam("motherboard");
-        document.getElementById("storageSelection").textContent = getQueryParam("storage");
-        document.getElementById("caseSelection").textContent = getQueryParam("case_");
-        document.getElementById("coolingSelection").textContent = getQueryParam("cooling");
-
-        // Function to redirect to the invoice page with total price
-        function checkout() {
-            // Calculate total price (you can include your logic here)
-            const totalPrice = calculateTotalPrice();
-            // Redirect to invoice.html with total price as a query parameter
-            window.location.href = `invoice.html?totalPrice=${totalPrice}`;
-        }
-
-        // Function to calculate the total price (add your logic here)
-        // Function to calculate the total price (add your logic here)
-        function calculateTotalPrice() {
-            const componentPrices = {
-                cpu: {
-                    i3: 120,
-                    i5: 285,
-                    i7: 400,
-                    i9: 550,
-                    r5: 300,
-                    r7: 450,
-                    r9: 500,
-                },
-                ram: {
-                    '8gb': 40,
-                    '16gb': 70,
-                    '32gb': 150,
-                    '64gb': 250,
-                },
-                gpu: {
-                    "nvidia4060": 300,
-                    "nvidia4070": 600,
-                    "nvidia4080": 1200,
-                    "nvidia4090": 1600,
-                    "rx7600": 300,
-                    "rx7700": 450,
-                    "rx7800": 600,
-                    "rx7900": 800,
-                },
-                storage: {
-                    "256gbSS": 15,
-                    "512gbSS": 30,
-                    "1TbSS": 80,
-                    "2TbSS": 120,
-                    "256gbHD": 20,
-                    "512gbHD": 30,
-                    "1TbHD": 50,
-                },
-                motherboard: {
-                    "atx": 150,
-                    "microatx": 200,
-                },
-                psu: {
-                    "500w": 40,
-                    "650w": 60,
-                    "750w": 80,
-                    "850w": 100,
-                    "1000w": 130,
-                    "1200w": 150,
-                },
-                case_: {
-                    "Corsair": 100,
-                    "LianLi": 150,
-                    "CoolerMaster": 80,
-                    "Fractal": 140,
-                    "NZXT": 85,
-                    "Thermaltake": 85,
-                },
-                cooling: {
-                    "fan": 50,
-                    "water": 100,
-                    "custom": 150,
-                },
-            };
-
-            // Extract selected components from query parameters
-            var data = window.location.search;
-            var params = new URLSearchParams(data);
-
-            var cpu = params.get('cpu');
-            var ram = params.get('ram');
-            var gpu = params.get('gpu');
-            var storage = params.get('storage');
-            var motherboard = params.get('motherboard');
-            var psu = params.get('psu');
-            var case_ = params.get('case_');
-            var cooling = params.get('cooling');
-
-            // Calculate the total price
-            var totalPrice =
-                componentPrices.cpu[cpu] +
-                componentPrices.ram[ram] +
-                componentPrices.gpu[gpu] +
-                componentPrices.storage[storage] +
-                componentPrices.motherboard[motherboard] +
-                componentPrices.psu[psu] +
-                componentPrices.case_[case_] +
-                componentPrices.cooling[cooling];
-
-            // Apply tax (if applicable)
-            const taxPrice = 0.07;
-            const totalTaxPrice = totalPrice * (1 + taxPrice);
-
-            return totalTaxPrice; // Return the calculated total price
-        }
-    </script>
-</body>
+            <p>Tax: <span id="taxPrice">$0.00</span></p>
+            <p>Total Price (with tax): <span id="totalPrice">$0.00</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+        <script src = "cart.js">
+        </script>
+    </body>
 </html>
