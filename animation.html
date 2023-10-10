@@ -1,85 +1,26 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
-
-<head>
-    <title>Juan's Animation</title>
-    <link href="style.css" rel="stylesheet">
-    <!-- Include CreateJS library -->
-    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-    <script src="hw3.js"></script>
-    <script>
-        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-
-        function init() {
-            canvas = document.getElementById("canvas");
-            anim_container = document.getElementById("animation_container");
-            dom_overlay_container = document.getElementById("dom_overlay_container");
-
-            // Update the composition ID to match your Adobe Animate project.
-            var comp = AdobeAn.getComposition("E9D701E83CF0404AA337C95BB3EA8037");
-
-            var lib = comp.getLibrary();
-            var loader = new createjs.LoadQueue(false);
-            loader.addEventListener("fileload", function (evt) { handleFileLoad(evt, comp) });
-            loader.addEventListener("complete", function (evt) { handleComplete(evt, comp) });
-
-            loader.loadManifest(lib.properties.manifest);
-        }
-
-        function handleFileLoad(evt, comp) {
-            var images = comp.getImages();
-            if (evt && (evt.item.type == "image")) {
-                images[evt.item.id] = evt.result;
-            }
-        }
-
-        function handleComplete(evt, comp) {
-            var lib = comp.getLibrary();
-            var ss = comp.getSpriteSheet();
-            var queue = evt.target;
-            var ssMetadata = lib.ssMetadata;
-            for (var i = 0; i < ssMetadata.length; i++) {
-                ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames });
-            }
-            exportRoot = new lib.hw3();
-            stage = new lib.Stage(canvas);
-
-            fnStartAnimation = function () {
-                stage.addChild(exportRoot);
-                createjs.Ticker.framerate = lib.properties.fps;
-                createjs.Ticker.addEventListener("tick", stage);
-            }
-
-            AdobeAn.makeResponsive(false, 'both', false, 1, [canvas, anim_container, dom_overlay_container]);
-            AdobeAn.compositionLoaded(lib.properties.id);
-            fnStartAnimation();
-        }
-    </script>
-</head>
-
-<body onload="init();" style="margin:0px;">
-    <div class="groove">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About me</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="indexshop.html">Shop</a></li>
-            <li><a href="animation.html">Animation button!</a></li>
-            <li><a href="index2.html">Press to swap versions</a></li>
-        </ul>
-    </div>
+    <head>
+        <title>Juan's Animation</title>
+        <link href="style.css" rel="stylesheet">
+        <div class="groove">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="indexshop.html">Shop</a></li>
+                <li><a href="animation.html">Animation button!</a></li>
+                <li><a href="index2.html">Press to swap versions</a></li>
+            </ul>
+        </div>
+    </head>
+<body>
     <div>
         <h1>Animation time</h1>
         <h2>First time!</h2>
     </div>
-    <div id="animation_container"
-        style="background-color:rgba(255, 255, 255, 1.00); width:678px; height:480px">
-        <canvas id="canvas" width="678" height="480"
-            style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-        <div id="dom_overlay_container"
-            style="pointer-events:none; overflow:hidden; width:678px; height:480px; position: absolute; left: 0px; top: 0px; display: block;">
-        </div>
-    </div>
+    <img sr = "Downloads\assignment_3_internet_programming.gif" alt = "gif">
 </body>
 
 </html>
