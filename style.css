@@ -15,6 +15,11 @@ h1 {
   margin: 25px;
 }
 
+h2  {
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+}
 body {
   background-color: white;
   text-align: bottom;
