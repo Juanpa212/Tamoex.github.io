@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<textbooks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="textbook.xsd">    
+    <textbook>
+        <title>A Guide to SQL</title>
+        <author>
+            <first_name>Philip J.</first_name>
+            <last_name>Pratt</last_name>
+        </author>
+        <publisher>
+            <name>Cengage</name>
+            <website>https://www.cengage.com/c/a-guide-to-sql-10e-shellman-afyouni-pratt-last/9780357361689/</website>
+        </publisher>
+        <year>2021</year>
+        <ISBN>978-0-357-36168-9</ISBN>
+        <edition>10th</edition>
+        <cover>Digital</cover>
+    </textbook>
+
+    <textbook>
+        <title>Database Design Using Entity-Relationship Diagrams</title>
+        <author>
+            <first_name>Sikha</first_name>
+            <last_name>Bagui</last_name>
+        </author>
+        <publisher>
+            <name>Auerbach Publications</name>
+            <website>https://www.routledge.com/go/auerbach_publications</website>
+        </publisher>
+        <year>2003</year>
+        <ISBN>0849315484</ISBN>
+        <edition>1st</edition>
+        <cover>Digital</cover>
+    </textbook>
+
+    <textbook>
+        <title>Create GUI Applications with Python and QT6</title>
+        <author>
+            <first_name>Martin</first_name>
+            <last_name>Fitzpatrick</last_name>
+        </author>
+        <publisher>
+            <name>Martin Fitzpartick</name>
+            <website>https://www.pythonguis.com/</website>
+        </publisher>
+        <year>2021</year>
+        <ISBN>979-8-829-98555-4</ISBN>
+        <edition>5th</edition>
+        <cover>Paperback</cover>
+    </textbook>
+</textbooks>
