@@ -16,13 +16,20 @@
           th {
             background-color: #f2f2f2;
           }
-          body  {
-            background-color: grey;
-          }
           h1 {
             text-align: center;
           }
 
+          button {
+            background-color: darkblue; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+          }
         </style>
       </head>
       <body>
@@ -39,7 +46,13 @@
           </tr>
           <xsl:apply-templates select="textbook"/>
         </table>
+        <button onclick="goToIndex()">Go back to Index</button>
       </body>
+      <script>
+        function goToIndex() {
+          window.location.href = 'index.html';
+        }
+      </script>
     </html>
   </xsl:template>
 
