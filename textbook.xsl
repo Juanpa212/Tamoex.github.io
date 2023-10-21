@@ -25,6 +25,7 @@
             <th>Title</th>
             <th>Author</th>
             <th>Publisher</th>
+            <th>Website</th>
             <th>Year</th>
             <th>ISBN</th>
             <th>Edition</th>
@@ -40,7 +41,8 @@
     <tr>
       <td><xsl:value-of select="title"/></td>
       <td><xsl:value-of select="concat(author/first_name, ' ', author/last_name)"/></td>
-      <td><a href="{publisher/website}"><xsl:value-of select="publisher/name"/></a></td>
+      <td><xsl:value-of select="publisher/name"/></td>
+      <td><a href="{publisher/website}"><xsl:value-of select="publisher/website"/></a></td>
       <td><xsl:value-of select="year"/></td>
       <td><xsl:value-of select="ISBN"/></td>
       <td><xsl:value-of select="edition"/></td>
