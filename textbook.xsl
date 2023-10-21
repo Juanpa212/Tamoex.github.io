@@ -16,12 +16,12 @@
           th {
             background-color: #f2f2f2;
           }
-          h1 {
+          h1, h4 {
             text-align: center;
           }
 
           button {
-            background-color: darkblue; /* Green */
+            background-color: darkblue;
             border: none;
             color: white;
             padding: 15px 32px;
@@ -29,11 +29,15 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
+            position: absolute;
+            bottom: 10px; 
+            right: 10px; 
           }
         </style>
       </head>
       <body>
         <h1>Textbooks</h1>
+        <h4>These books are some of these trimester and some of the books i've used to practice.</h4>
         <table>
           <tr>
             <th>Title</th>
@@ -46,7 +50,7 @@
           </tr>
           <xsl:apply-templates select="textbook"/>
         </table>
-        <button onclick="goToIndex()">Go back to Index</button>
+        <button onclick="goToIndex()">Go Home</button>
       </body>
       <script>
         function goToIndex() {
