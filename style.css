@@ -96,3 +96,17 @@ ul li a:hover {
 
 }
 
+@media (max-width: 768px) {
+  .content {
+      flex-direction: column;
+  }
+
+  .image {
+      width: 100%; /* Make the image full width */
+  }
+
+  .wrapper {
+      padding: 10px;
+      text-align: center;
+  }
+}

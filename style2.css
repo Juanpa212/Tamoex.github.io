@@ -100,3 +100,19 @@
   .background_beach{
     background-image: url("beach.JPG");
   }
+
+
+  @media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .image {
+        width: 100%; /* Make the image full width */
+    }
+
+    .wrapper {
+        padding: 10px;
+        text-align: center;
+    }
+}
