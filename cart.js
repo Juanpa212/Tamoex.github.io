@@ -1,169 +1,196 @@
-function getQueryParam() {
-    const queryParams = new URLSearchParams(window.location.search);
-    const cpu = queryParams.get("cpu");
-    const ram = queryParams.get("ram");
-    const gpu = queryParams.get("gpu");
-    const motherboard = queryParams.get("motherboard");
-    const psu = queryParams.get("psu");
-    const storage = queryParams.get("storage");
-    const case_ = queryParams.get("case_");
-    const cooling = queryParams.get("cooling");
-    const dvd = queryParams.get("dvd");
-    const sound = queryParams.get("sound");
-    const wifi = queryParams.get("wifi");
-    const rgb = queryParams.get("rgb");
-    return {
-        cpu,
-        ram,
-        gpu,
-        motherboard,
-        psu,
-        storage,
-        case_,
-        cooling,
-        dvd,
-        sound,
-        wifi,
-        rgb,
-    };
+const priceList = {
+    "Intel i3": 120,
+    "Intel i5": 285,
+    "Intel i7": 400,
+    "Intel i9": 550,
+    "Ryzen 5": 300,
+    "Ryzen 7": 450,
+    "Ryzen 9": 500,
+    "8 GB": 40,
+    "16 GB": 60,
+    "32 GB": 120,
+    "64 GB": 200,
+    "RTX 4060": 300,
+    "RTX 4070": 600,
+    "RTX 4080": 1200,
+    "RTX 4090": 1600,
+    "RX 7600": 320,
+    "RX 7700 XT": 450,
+    "RX 7800 XT": 600,
+    "RX 7900 XT": 800,
+    "256gb ssd": 15,
+    "512gb ssd": 30,
+    "1Tb ssd": 80,
+    "2Tb ssd": 120,
+    "256gb hd": 10,
+    "512gb hd": 20,
+    "1Tb hd": 50,
+    "ATX": 150,
+    "MICRO ATX": 200,
+    "500Watts": 20,
+    "650Watts": 40,
+    "750Watts": 60,
+    "850Watts": 80,
+    "1000Watts": 100,
+    "1200Watts": 120,
+    "Corsair": 100,
+    "Lian Li": 150,
+    "CoolerMaster": 80,
+    "Fractal": 140,
+    "NZXT": 85,
+    "Thermaltake": 90,
+    "Air Cooling": 50,
+    "Water Cooling": 100,
+    "Custom Loop Cooling": 150,
+    "DVD Disk Drive": 30,
+    "Sound Card": 25,
+    "Wifi Card": 20,
+    "RGB Lights": 15
+};
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const cpuSelection = urlParams.get('cpu');
+    const ramSelection = urlParams.get('ram');
+    const gpuSelection = urlParams.get('gpu');
+    const motherboardSelection = urlParams.get('motherboard');
+    const storageSelection = urlParams.get('storage');
+    const caseSelection = urlParams.get('case_');
+    const psuSelection = urlParams.get('psu');
+    const coolingSelection = urlParams.get('cooling');
+    const dvdCheck = urlParams.get('dvd');
+    const rgbCheck = urlParams.get('rgb');
+    const wifiCheck = urlParams.get('wifi');
+    const soundCheck = urlParams.get('sound');
+
+    const cpuPrice = priceList[cpuSelection] || 0;
+    const ramPrice = priceList[ramSelection] || 0;
+    const gpuPrice = priceList[gpuSelection] || 0;
+    const motherboardPrice = priceList[motherboardSelection] || 0;
+    const storagePrice = priceList[storageSelection] || 0;
+    const casePrice = priceList[caseSelection] || 0;
+    const psuPrice = priceList[psuSelection] || 0;
+    const coolingPrice = priceList[coolingSelection] || 0;
+    const dvdPrice = priceList[dvdCheck] || 0;
+    const rgbPrice = priceList[rgbCheck] || 0;
+    const wifiPrice = priceList[wifiCheck] || 0;
+    const soundPrice = priceList[soundCheck] || 0;
+
+    // Calculate subtotal without tax
+    const subtotal = cpuPrice + ramPrice + gpuPrice + motherboardPrice + storagePrice +
+                    casePrice + psuPrice + coolingPrice + dvdPrice + rgbPrice + wifiPrice + soundPrice;
+
+    // Define your tax rate (for example, 10% tax)
+    const taxRate = 0.1;
+
+    // Calculate the tax amount
+    const tax = subtotal * taxRate;
+
+    // Calculate the total price including tax
+    const totalPrice = subtotal + tax;
+
+    document.getElementById('cpuSelection').textContent = cpuSelection;
+    document.getElementById('cpuPrice').textContent = `$${cpuPrice}`;
+    document.getElementById('ramSelection').textContent = ramSelection;
+    document.getElementById('ramPrice').textContent = `$${ramPrice}`;
+    document.getElementById('gpuSelection').textContent = gpuSelection;
+    document.getElementById('gpuPrice').textContent = `$${gpuPrice}`;
+    document.getElementById('motherboardSelection').textContent = motherboardSelection;
+    document.getElementById('motherboardPrice').textContent = `$${motherboardPrice}`;
+    document.getElementById('storageSelection').textContent = storageSelection;
+    document.getElementById('storagePrice').textContent = `$${storagePrice}`;
+    document.getElementById('caseSelection').textContent = caseSelection;
+    document.getElementById('casePrice').textContent = `$${casePrice}`;
+    document.getElementById('psuSelection').textContent = psuSelection;
+    document.getElementById('psuPrice').textContent = `$${psuPrice}`;
+    document.getElementById('coolingSelection').textContent = coolingSelection;
+    document.getElementById('coolingPrice').textContent = `$${coolingPrice}`;
+    document.getElementById('dvdCheck').textContent = dvdCheck;
+    document.getElementById('dvdPrice').textContent = `$${dvdPrice}`;
+    document.getElementById('rgbCheck').textContent = rgbCheck;
+    document.getElementById('rgbPrice').textContent = `$${rgbPrice}`;
+    document.getElementById('wifiCheck').textContent = wifiCheck;
+    document.getElementById('wifiPrice').textContent = `$${wifiPrice}`;
+    document.getElementById('soundCheck').textContent = soundCheck;
+    document.getElementById('soundPrice').textContent = `$${soundPrice}`;
+    document.getElementById('taxPrice').textContent = `$${tax.toFixed(2)}`; // Display the tax with two decimal places
+    document.getElementById('totalPrice').textContent = `$${totalPrice.toFixed(2)}`; // Display the total price with two decimal places
+});
+
+
+
+// Function to update the table when a checkbox is checked
+function updateTable() {
+    const dvdCheckbox = document.getElementById('dvdCheckbox');
+    const dvdRow = document.getElementById('dvdRow');
+    const dvdSelection = document.getElementById('dvdSelection');
+    const dvdPrice = document.getElementById('dvdPrice');
+
+    if (dvdCheckbox.checked) {
+        // Add the add-on to the table
+        dvdRow.style.display = '';
+        dvdSelection.textContent = "DVD Disk Drive";
+        dvdPrice.textContent = "$30"; // Use the data-price attribute value here
+    } else {
+        // Remove the add-on from the table
+        dvdRow.style.display = 'none';
+        dvdSelection.textContent = "";
+        dvdPrice.textContent = "";
+    }
+
+    // Calculate the total price and update it here
+    calculateTotalPrice();
 }
 
-// const taxRate = 0.07;
+// Function to calculate the total price
+function calculateTotalPrice() {
+    // Get the prices of selected components
+    const cpuPrice = priceList[document.getElementById('cpu').value];
+    const ramPrice = priceList[document.getElementById('ram').value];
+    const gpuPrice = priceList[document.getElementById('gpu').value];
+    const motherboardPrice = priceList[document.getElementById('motherboard').value];
+    const storagePrice = priceList[document.getElementById('storage').value];
+    const casePrice = priceList[document.getElementById('case_').value];
+    const psuPrice = priceList[document.getElementById('psu').value];
+    const coolingPrice = priceList[document.getElementById('cooling').value];
 
-// document.getElementById("cpuSelection").textContent = getQueryParam("cpu");
-// document.getElementById("ramSelection").textContent = getQueryParam("ram");
-// document.getElementById("gpuSelection").textContent = getQueryParam("gpu");
-// document.getElementById("motherboardSelection").textContent = getQueryParam("motherboard");
-// document.getElementById("psuSelection").textContent = getQueryParam("psu");
-// document.getElementById("storageSelection").textContent = getQueryParam("storage");
-// document.getElementById("caseSelection").textContent = getQueryParam("case_");
-// document.getElementById("coolingSelection").textContent = getQueryParam("cooling");
-// document.getElementById("dvdSelection").textContent = getQueryParam("dvd");
-// document.getElementById("soundSelection").textContent = getQueryParam("sound");
-// document.getElementById("wifiSelection").textContent = getQueryParam("wifi");
-// document.getElementById("rgbSelection").textContent = getQueryParam("rgb");
+    // Initialize total price with the sum of component prices
+    let totalPrice = cpuPrice + ramPrice + gpuPrice + motherboardPrice +
+        storagePrice + casePrice + psuPrice + coolingPrice;
 
-// const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-// checkboxes.forEach((checkbox) => {
-//     checkbox.addEventListener('change', calculateTotalPrice);
-// });
-//     const componentPrices = {
-//         cpu: {
-//             120: 120,
-//             285: 285,
-//             400: 400,
-//             550: 550,
-//             300: 300,
-//             450: 450,
-//             500: 500,
-//         },
-//         ram: {
-//             40 : 40,
-//             60 : 60,
-//             120: 120,
-//             200: 200,
-//         },
-//         gpu: {
-//             300 : 300,
-//             600 : 600,
-//             1200 : 1200,
-//             1600 : 1600,
-//             320 : 320,
-//             450 : 450,
-//             600 : 600,
-//             800 : 800,
-//         },
-//         storage: {
-//             15: 15,
-//             30: 30,
-//             80: 80,
-//             120: 120,
-//             10: 10,
-//             20: 20,
-//             50: 50,
-//         },
-//         motherboard: {
-//             150: 150,
-//             200: 200,
-//         },
-//         psu: {
-//             20: 20,
-//             40 : 40,
-//             60: 60,
-//             80 : 80,
-//             100 : 100,
-//             120 : 120,
-//         },
-//         case_: {
-//             100 : 100,
-//             150 : 150,
-//             80 : 80,
-//             140: 140,
-//             85: 85,
-//             90: 90,
-//         },
-//         cooling: {
-//             50: 50,
-//             100: 100,
-//             150: 150,
-//         },
+    // Handle each add-on separately
+    const dvdCheckbox = document.getElementById('dvdCheckbox');
+    if (dvdCheckbox.checked) {
+        totalPrice += parseInt(dvdCheckbox.getAttribute('data-price'));
+    }
 
-//     };
+    const soundCheckbox =document.getElementById('soundCheckbox');
+    if(soundCheckbox.checked)
+    {
+        totalPrice += parseInt(soundCheckbox.getAttribute('soundCheckbox'));
+    }
 
+    const rgbCheckbox =document.getElementById('rgbCheckbox');
+    if(rgbCheckbox.checked)
+    {
+        totalPrice += parseInt(rgbCheckbox.getAttribute('rgbCheckbox'));
+    }
 
+    const wifiCheckbox =document.getElementById('wifiCheckbox');
+    if(wifiCheckbox.checked)
+    {
+        totalPrice += parseInt(wifiCheckbox.getAttribute('wifiCheckbox'));
+    }
+    // Repeat the above for other add-ons (sound, wifi, rgb) as well.
 
-// function getAddOnPrice(addOnId) {
-// const addOnPriceMap = {
-//     dvd: 30,
-//     sound: 25,
-//     wifi: 20,
-//     rgb: 15,
-// };
+    // Display the tax (assumed 10% in this example)
+    const taxPrice = totalPrice * 0.1; // 10% tax
+    const totalWithTax = totalPrice + taxPrice;
 
-// const checkbox = document.getElementById(addOnId);
-// return checkbox.checked ? addOnPriceMap[addOnId] : 0;
-// }
-
-function updateCart(){
-    const selectedComponents= getQueryParam();
-
-    document.getElementById("cpuSelection").textContent = selectedComponents.cpu || "-";
-    document.getElementById("ramSelection").textContent = selectedComponents.ram || "-";
-    document.getElementById("gpuSelection").textContent = selectedComponents.gpu || "-";
-    document.getElementById("motherboardSelection").textContent = selectedComponents.motherboard || "-";
-    document.getElementById("psuSelection").textContent = selectedComponents.psu || "-";
-    document.getElementById("storageSelection").textContent = selectedComponents.storage || "-";
-    document.getElementById("caseSelection").textContent = selectedComponents.case_ || "-";
-    document.getElementById("coolingSelection").textContent = selectedComponents.cooling || "-";
-    document.getElementById("dvdSelection").textContent = selectedComponents.dvd || "-";
-    document.getElementById("soundSelection").textContent = selectedComponents.sound || "-";
-    document.getElementById("wifiSelection").textContent = selectedComponents.wifi || "-";
-    document.getElementById("rgbSelection").textContent = selectedComponents.rgb || "-";
+    // Update the displayed prices in the table
+    document.getElementById('totalPrice').textContent = `$${totalWithTax.toFixed(2)}`;
+    document.getElementById('taxPrice').textContent = `$${taxPrice.toFixed(2)}`;
 }
-
-updateCart();
-
-// function calculateTotalPrice() {
-//     let totalPrice = 0;
-//     const componentIds = ["cpu", "ram", "gpu", "storage", "motherboard", "psu", "case_", "cooling"];
-//     for (const componentId of componentIds) {
-//         const selectedOption = document.getElementById(`${componentId}Selection`).textContent;
-//         const componentPrice = componentPrices[componentId][selectedOption];
-//         totalPrice += componentPrice;
-//     }
-
-//     //display price in the table on cart.html
-//     const tax = totalPrice * taxRate;
-//     const finalPrice = totalPrice + tax;
-
-// }
-
-// function checkout() {
-//     console.log("checkout button clicked");
-//     //take the final price and send it to the checkout page
-//     const finalPrice = document.getElementById("finalPrice").textContent;
-//     window.location.href = `checkout.html?price=${finalPrice}`;
-
-// }
-
-// calculateTotalPrice();

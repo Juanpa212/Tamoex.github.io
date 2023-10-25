@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link href="styleshop.css" rel = "stylesheet">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
         <body>
-            <link href="styleshop.css" rel = "stylesheet">
             <header class = "header">
                 <h1>DigiBuilds</h1>
                 <nav class = "nav">
@@ -13,12 +14,8 @@
                                 <li><a href="indexshop.html">Home</a></li>
                                 <li><a href="builder.html">Builder</a></li>
                                 <li><a href="index.html">Portfolio</a></li>
+                                <li><a style ="float: right" href="cart.html">Cart</a></li>
                             </ul>
-                        </div>
-                        <div class = "nav-right">
-                            <a href ="cart.html">Cart</a>
-                        </div>
-
                 </nav>
             </header>
             <div class = "wrapper">
@@ -79,7 +76,7 @@
                     </p>
                     <form id="partForm" method="GET" action="cart.html">
                         <label for = "cpu">Select the CPU: </label>
-                        <select id="cpu" type = "text" name = "cpu">
+                        <select id="cpu" name = "cpu">
                             <option value = "Intel i3">Intel i3 - $120</option>
                             <option value = "Intel i5">Intel i5 - $285</option>
                             <option value = "Intel i7">Intel i7 - $400</option>
@@ -90,7 +87,7 @@
                         </select>
                         <br>
                         <label for = "ram">Select the RAM: </label>
-                        <select id="ram" type ="text" name= "ram">
+                        <select id="ram"  name= "ram">
                             <option value = "8 GB"  >8 GB - $40</option>
                             <option value = "16 GB">16 GB - $60</option>
                             <option value = "32 GB">32 GB - $120</option>
@@ -99,19 +96,19 @@
                         </select>
                         <br>
                         <label for = "gpu">Select the Graphics Card</label>
-                        <select id="gpu" type="text" name ="gpu">
-                            <option value = " RTX 4060"> RTX 4060 - $300</option>
-                            <option value = " RTX 4070"> RTX 4070 - $600</option>
-                            <option value = "> RTX 4080"> RTX 4080 - $1200</option>
-                            <option value = "> RTX 4090"> RTX 4090 - $1600</option>
-                            <option value = " RX 7600"> RX 7600 - $320</option>
-                            <option value = " RX 7700 XT"> RX 7700 XT - $450</option>
-                            <option value = " RX 7800 XT"> RX 7800 XT - $600</option>
-                            <option value = " RX 7900 XT"> RX 7900 XT - $800</option>
+                        <select id="gpu" name ="gpu">
+                            <option value = "RTX 4060"> RTX 4060 - $300</option>
+                            <option value = "RTX 4070"> RTX 4070 - $600</option>
+                            <option value = "RTX 4080"> RTX 4080 - $1200</option>
+                            <option value = "RTX 4090"> RTX 4090 - $1600</option>
+                            <option value = "RX 7600"> RX 7600 - $320</option>
+                            <option value = "RX 7700 XT"> RX 7700 XT - $450</option>
+                            <option value = "RX 7800 XT"> RX 7800 XT - $600</option>
+                            <option value = "RX 7900 XT"> RX 7900 XT - $800</option>
                         </select>
                         <br>
                         <label for = "storage">Select the Storage Capacity</label>
-                        <select id="storage" type="text" name = "storage">
+                        <select id="storage" name = "storage">
                             <option value = "256gb ssd">256gb Solid State Drive - $15</option>
                             <option value = "512gb ssd">512gb Solid State Drive - $30</option>
                             <option value = "1Tb ssd"> 1Tb Solid State Drive - $80</option>
@@ -122,13 +119,13 @@
                         </select>
                         <br>
                         <label for = "motherboard">Select the motherboard: </label>
-                        <select id="motherboard" type="text" name="motherboard">
+                        <select id="motherboard" name="motherboard">
                             <option value = "ATX">ATX - $150</option>
                             <option value = "MICRO ATX">Micro ATX - $200</option>
                         </select>
                         <br>
                         <label for = "psu">Select the Power Supply Capacity</label>
-                        <select id = "psu" type="text" name="psu">
+                        <select id = "psu" name="psu">
                             <option value = "500Watts">500 Watts - $20</option>
                             <option value = "650Watts">650 Watts - $40</option>
                             <option value = "750Watts">750 Watts - $60</option>
@@ -138,7 +135,7 @@
                         </select>
                         <br>
                         <label for = "case">Select the Case: </label>
-                        <select id = "case_" type="text" name = "case_">
+                        <select id = "case_" name = "case_">
                             <option value = "Corsair"> Corsair - $100</option>
                             <option value = "Lian Li"> Lian Li - $150</option>
                             <option value = "CoolerMaster"> CoolerMaster - $80</option>   
@@ -148,40 +145,66 @@
                         </select>
                         <br>
                         <label for = "cooling">Select the Cooler Type: </label>
-                        <select id = "cooling" type="text" name = "cooling">
+                        <select id = "cooling" name = "cooling">
                             <option value = "Air Cooling"> Fans - $50 </option>
                             <option value = "Water Cooling"> Water Cooling - $100</option>
                             <option value = "Custom Loop Cooling"> Custom Loop - $150</option>
                         </select>
                         <br>
                         <h2>Add-ons</h2>
-                        <label for="dvdCheckbox">Add DVD:</label>
-                        <input type="checkbox" id="dvdCheckbox">
-                        <br>
-                        <tr id="dvdRow" style="display: none;">
-                            <td>DVD Disk Drive</td>
-                            <td id="dvdSelection"></td>
-                            <td id="dvdPrice"></td>
-                        </tr>
-                        <tr id="soundRow" style="display: none;">
-                            <td>Sound Card </td>
-                            <td id="soundSelection"></td>
-                            <td id="soundPrice"></td>
-                        </tr>
-                        <tr id="wifiRow" style="display: none;">
-                            <td>Wifi Card</td>
-                            <td id="wifiSelection"></td>
-                            <td id="wifiPrice"></td>
-                        </tr>
-                        <tr id="rbgrow" style="display: none;">
-                            <td>RGB lights</td>
-                            <td id="rbgSelection"></td>
-                            <td id="rbgPrice"></td>
-                        </tr>
-                        <!-- <label><input type="checkbox" id="dvd">DVD Disk Drive (+$30)</label>
-                        <label><input type="checkbox" id="sound">Sound Card (+$25)</label>
-                        <label><input type="checkbox" id="wifi">Wifi Card (+$20)</label>
-                        <label><input type="checkbox" id="rgb">RGB Lights (+$15)</label> -->
+    
+                        <label for="dvdCheckbox">
+                            <input type="checkbox" id="dvdCheckbox"> DVD Disk Drive (+$30)
+                        </label>
+                        <div id="dvdRow" style="display: none;">
+                            <table>
+                                <tr>
+                                    <td>DVD Disk Drive</td>
+                                    <td id="dvdSelection"></td>
+                                    <td id="dvdPrice"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    
+                        <label for="soundCheckbox">
+                            <input type="checkbox" id="soundCheckbox"> Sound Card (+$25)
+                        </label>
+                        <div id="soundRow" style="display: none;">
+                            <table>
+                                <tr>
+                                    <td>Sound Card</td>
+                                    <td id="soundSelection"></td>
+                                    <td id="soundPrice"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    
+                        <label for="wifiCheckbox">
+                            <input type="checkbox" id="wifiCheckbox"> Wifi Card (+$20)
+                        </label>
+                        <div id="wifiRow" style="display: none;">
+                            <table>
+                                <tr>
+                                    <td>Wifi Card</td>
+                                    <td id="wifiSelection"></td>
+                                    <td id="wifiPrice"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    
+                        <label for="rgbCheckbox">
+                            <input type="checkbox" id="rgbCheckbox"> RGB Lights (+$15)
+                        </label>
+                        <div id="rgbRow" style="display: none;">
+                            <table>
+                                <tr>
+                                    <td>RGB Lights</td>
+                                    <td id="rgbSelection"></td>
+                                    <td id="rgbPrice"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    
                         <br>
                         <button type="submit">Add build to cart</button>
                     </form>
