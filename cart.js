@@ -122,28 +122,91 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// Function to update the table when a checkbox is checked
+// Function to update the table
 function updateTable() {
-    const dvdCheckbox = document.getElementById('dvdCheckbox');
-    const dvdRow = document.getElementById('dvdRow');
-    const dvdSelection = document.getElementById('dvdSelection');
-    const dvdPrice = document.getElementById('dvdPrice');
+    // Clear existing table content
+    clearTable();
 
-    if (dvdCheckbox.checked) {
-        // Add the add-on to the table
-        dvdRow.style.display = '';
-        dvdSelection.textContent = "DVD Disk Drive";
-        dvdPrice.textContent = "$30"; // Use the data-price attribute value here
-    } else {
-        // Remove the add-on from the table
-        dvdRow.style.display = 'none';
-        dvdSelection.textContent = "";
-        dvdPrice.textContent = "";
-    }
+    // Get the selected component values
+    const selectedCpu = document.getElementById('cpu').value;
+    const selectedRam = document.getElementById('ram').value;
+    const selectedGpu = document.getElementById('gpu').value;
+    const selectedMotherboard = document.getElementById('motherboard').value;
+    const selectedStorage = document.getElementById('storage').value;
+    const selectedCase = document.getElementById('case_').value;
+    const selectedPsu = document.getElementById('psu').value;
+    const selectedCooling = document.getElementById('cooling').value;
 
-    // Calculate the total price and update it here
+    // Calculate the prices of selected components
+    const cpuPrice = priceList[selectedCpu];
+    const ramPrice = priceList[selectedRam];
+    const gpuPrice = priceList[selectedGpu];
+    const motherboardPrice = priceList[selectedMotherboard];
+    const storagePrice = priceList[selectedStorage];
+    const casePrice = priceList[selectedCase];
+    const psuPrice = priceList[selectedPsu];
+    const coolingPrice = priceList[selectedCooling];
+
+    // Display selected components in the table
+    displayComponentInTable('Processor', selectedCpu, cpuPrice);
+    displayComponentInTable('Ram', selectedRam, ramPrice);
+    displayComponentInTable('Graphics Card', selectedGpu, gpuPrice);
+    displayComponentInTable('Motherboard', selectedMotherboard, motherboardPrice);
+    displayComponentInTable('Storage', selectedStorage, storagePrice);
+    displayComponentInTable('Power Supply', selectedPsu, psuPrice);
+    displayComponentInTable('Case', selectedCase, casePrice);
+    displayComponentInTable('Cooling', selectedCooling, coolingPrice);
+
+    // Handle add-ons
+    displayAddonInTable('DVD Disk Drive', 'dvdCheckbox', 'dvdSelection', 'dvdPrice', 30);
+    displayAddonInTable('Sound Card', 'soundCheckbox', 'soundSelection', 'soundPrice', 25);
+    displayAddonInTable('WiFi Card', 'wifiCheckbox', 'wifiSelection', 'wifiPrice', 20);
+    displayAddonInTable('RGB Lights', 'rgbCheckbox', 'rgbSelection', 'rgbPrice', 15);
+    
+    // Calculate the total price
     calculateTotalPrice();
 }
+
+// Function to display a component in the table
+function displayComponentInTable(componentName, selection, price) {
+    const table = document.getElementById('componentsTable');
+    const row = table.insertRow();
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+    const cell3 = row.insertCell(2);
+    cell1.textContent = componentName;
+    cell2.textContent = selection;
+    cell3.textContent = `$${price}`;
+}
+
+// Function to display an add-on in the table
+function displayAddonInTable(componentName, checkboxId, selectionId, priceId, price) {
+    const table = document.getElementById('componentsTable');
+    const row = table.insertRow();
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+    const cell3 = row.insertCell(2);
+    cell1.textContent = componentName;
+    
+    const addonCheckbox = document.getElementById(checkboxId);
+    if (addonCheckbox.checked) {
+        const selection = addonCheckbox.getAttribute('data-label');
+        cell2.textContent = selection;
+        cell3.textContent = `$${price}`;
+    } else {
+        cell2.textContent = ''; // Leave the selection cell empty
+        cell3.textContent = ''; // Leave the price cell empty
+    }
+}
+
+// Function to clear the table
+function clearTable() {
+    const table = document.getElementById('componentsTable');
+    while (table.rows.length > 1) {
+        table.deleteRow(1);
+    }
+}
+
 
 // Function to calculate the total price
 function calculateTotalPrice() {
